@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfect Number Checker</title>
+</head>
+<style>
+#num{
+    width:100% 
+    height: 100vh;
+    padding: 5px;
+}
+</style>
+
+<body>
+<div class="container">
+<h2>Perfect Number Checker</h2>
+</div>
+   
+<input type="number" id="num" placeholder="Enter a number"><br><br>
+<button onclick="checkPerfect()">Check</button>
+
+<p id="result"></p>
+
+<script>
+function checkPerfect() {
+    let num = Number(document.getElementById("num").value);
+    let sum = 0;
+
+    for(let i = 1; i < num; i++) {
+        if(num % i == 0) {
+            sum += i;
+        }
+    }
+
+    if(sum == num) {
+        document.getElementById("result").innerHTML =
+            num + " is a Perfect Number";
+    } else {
+        document.getElementById("result").innerHTML =
+            num + " is Not a Perfect Number";
+    }
+}
+</script>
+
+</body>
+</html>

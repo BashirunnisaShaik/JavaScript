@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>divsible S</title>
+</head>
+<body>
+    <input type="number" id="number" placeholder="Enter a number">
+    <button onclick="check()">check</button>
+    <p id="result"></p>
+    <script>
+        function check() {
+            let number = Number(document.getElementById("number").value);
+            let result = document.getElementById("result");
+
+            if (number !== 0) {
+                result.innerHTML = "Divisible by 5: " + (number / 5);
+            } else {
+                result.innerHTML = " Not Divisible by 5:";
+            }
+        }
+    </script>
+</body>
+</html>

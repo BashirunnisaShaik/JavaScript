@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Account</title>
+    <style>
+       nav{
+        text-align: center;
+        font-size: 30px;
+       }
+        
+        .container {
+            width: 60%;
+            height: 60vh;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #e09f9f;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 60%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        h2 {
+            
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+ 
+    <h2>Bank Account</h2>
+    <label for="number">Enter pin:</label>
+    <input type="number">
+    
+    <h2> Current Balance: ₹<span id="balance">0</span></h2>
+
+    <input type="number" id="amount" placeholder="Enter Amount">
+
+    <br>
+
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">Withdraw</button>
+
+    <p id="message"></p>
+</div>
+
+<script>
+    let balance = 0;
+
+    function deposit() {
+        let amount = Number(document.getElementById("amount").value);
+
+        if (amount > 0) {
+            balance += amount;
+            document.getElementById("balance").innerText = balance;
+            document.getElementById("message").innerText =
+                "₹" + amount + " deposited successfully!";
+        } else {
+            document.getElementById("message").innerText =
+                "Enter a valid amount.";
+        }
+
+        document.getElementById("amount").value = "";
+    }
+
+    function withdraw() {
+        let amount = Number(document.getElementById("amount").value);
+
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            document.getElementById("balance").innerText = balance;
+            document.getElementById("message").innerText =
+                "₹" + amount + " withdrawn successfully!";
+        } else if (amount > balance) {
+            document.getElementById("message").innerText =
+                "Insufficient Balance!";
+        } else {
+            document.getElementById("message").innerText =
+                "Enter a valid amount.";
+        }
+
+        document.getElementById("amount").value = "";
+    }
+</script>
+
+</body>
+</html>

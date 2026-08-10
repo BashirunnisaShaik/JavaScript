@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Market Billing App</title>
+</head>
+
+<body>
+    <nav style="background-color:#333;padding:15px;">
+        <a href="#"style="color: white;text-dwcoration:none";margin-right:20px;">home</a>
+        <a href="#"style="color: white;text-dwcoration:none";margin-right:20px;">products</a>
+        <a href="#"style="color: white;text-dwcoration:none";margin-right:20px;">billing</a>
+        <a href="#"style="color: white;text-dwcoration:none";margin-right:20px;">contact</a>
+        
+    </nav>
+<h1>**** SUPER MARKET BILLING APP ****</h1>
+
+<label>Total Quantity</label>
+<input type="number" id="tq"><br><br>
+
+<label>Price</label>
+<input type="number" id="p"><br><br>
+
+<label>Total</label>
+<input type="number" id="to" readonly><br><br>
+
+<label>GST (18%)</label>
+<input type="number" id="gs" readonly><br><br>
+
+<label>Amount</label>
+<input type="number" id="amount" readonly><br><br>
+
+<button type="button" onclick="cal()">Submit</button>
+
+<script>
+
+function cal() {
+
+    let total_quantity = parseInt(document.getElementById("tq").value);
+
+    let price = parseInt(document.getElementById("p").value);
+
+    let total = total_quantity * price;
+
+    let gst = total * 0.18;
+
+    let total_amount = total + gst;
+
+    document.getElementById("to").value = total;
+
+    document.getElementById("gs").value = gst;
+
+    document.getElementById("amount").value = total_amount;
+}
+
+</script>
+
+</body>
+</html>
